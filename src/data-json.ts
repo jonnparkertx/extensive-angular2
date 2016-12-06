@@ -1,4 +1,4 @@
-[
+export var data = [
   {
     "_id": "584594d6d2898dad7a1cd152",
     "index": 0,

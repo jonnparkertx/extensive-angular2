@@ -25,18 +25,18 @@ var webpackConfig = {
   ],
 
   module: {
-    loaders: [
+    rules: [
       // .ts files for TypeScript
       {
         test: /\.ts$/,
-        loaders: [
+        use: [
           'awesome-typescript-loader',
           'angular2-template-loader',
           'angular2-router-loader'
         ]
       },
-      { test: /\.css$/, loaders: ['to-string-loader', 'css-loader'] },
-      { test: /\.html$/, loader: 'raw-loader' }
+      { test: /\.css$/, use: ['to-string-loader', 'css-loader'] },
+      { test: /\.html$/, use: 'raw-loader' }
     ]
   }
 
@@ -59,13 +59,13 @@ var defaultConfig = {
   },
 
   devServer: {
-    setup: function(app) {
-      // express middleware
-      app.get('/data.json', function(req, res) {
-        var json = require('./src/data.json');
-        res.json(json);
-      });
-    },
+    // setup: function(app) {
+    //  // express middleware
+    //  app.get('/data.json', function(req, res) {
+    //    var json = require('./src/data.json');
+    //    res.json(json);
+    //  });
+    // },
     historyApiFallback: true,
     watchOptions: { aggregateTimeout: 300, poll: 1000 }
   },
